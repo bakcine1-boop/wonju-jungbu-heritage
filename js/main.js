@@ -243,7 +243,7 @@
   function show(i) { idx = (i + group.length) % group.length; const el = group[idx]; lbImg.src = el.dataset.lb; lbImg.alt = el.querySelector('img')?.alt || ''; lbCap.textContent = el.dataset.cap || ''; }
   document.addEventListener('click', e => {
     const el = e.target.closest('[data-lb]'); if (!el) return;
-    group = $$('[data-lb]', el.closest('.mosaic') || document); show(group.indexOf(el));
+    group = $$('[data-lb]', el.closest('.mosaic, .sun-grid') || document); show(group.indexOf(el));
     lb.showModal(); document.body.style.overflow = 'hidden';
   });
   $('.prev', lb).addEventListener('click', e => { e.stopPropagation(); show(idx - 1); });
