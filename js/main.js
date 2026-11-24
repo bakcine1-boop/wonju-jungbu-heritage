@@ -4,7 +4,7 @@
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const saveData = navigator.connection && navigator.connection.saveData;
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-  const ST = { prep: '인터뷰 준비 중', shot: '촬영 완료 · 편집 중', open: '인터뷰 영상 보기' };
+  const ST = { prep: '', shot: '', open: '인터뷰 영상 보기' };
 
   /* ---------- 햇수·70주년 자동 계산 (매년 6월 12일 기준) ---------- */
   (() => {
@@ -25,7 +25,7 @@
     return `<button class="pc" data-id="${p.id}" aria-haspopup="dialog" aria-label="${esc(p.name)} ${esc(p.role)} 자세히 보기">
       <span class="ph">${ph}</span>
       <span class="who"><b>${esc(p.name)}</b><small>${esc(p.role)}</small></span>
-      <span class="st ${p.status}">${ST[p.status] || ''}</span></button>`;
+      ${ST[p.status] ? `<span class="st ${p.status}">${ST[p.status]}</span>` : ''}</button>`;
   }
   function showGroup(g) {
     if (!grid) return;
@@ -227,7 +227,7 @@
       slot.innerHTML = `<b><span class="chip open">인터뷰 영상</span></b>${p.quote ? `<p class="q">“${esc(p.quote)}”</p>` : ''}<div class="yt" data-yt="${p.yt}" role="button" tabindex="0" aria-label="${esc(p.name)} ${esc(p.role)} 인터뷰 재생"><img src="https://i.ytimg.com/vi/${p.yt}/hqdefault.jpg" alt=""><span class="play"><i></i></span></div>`;
       const b = $('.yt', slot); b.addEventListener('click', () => { if (!b.classList.contains('on')) mount(b, p.yt, p.t); });
     } else {
-      slot.innerHTML = `<b><span class="chip ${p.status}">${ST[p.status] || ST.prep}</span></b><p>${p.status === 'shot' ? '촬영을 마치고 편집하고 있습니다. 완성되면 이 자리에서 바로 보실 수 있습니다.' : '이 분의 신앙 여정은 인터뷰 영상으로 담아 이 자리에 공개합니다.'}</p>`;
+      slot.innerHTML = '';
     }
     $('#pd-alt').innerHTML = p.link ? `<button class="alt" type="button" data-yt="${p.link.yt}" data-t="${p.link.t}">▶ ${esc(p.link.label)}</button>` : '';
     const alt = $('#pd-alt .alt'); alt && alt.addEventListener('click', () => openVideo(alt.dataset.yt, +alt.dataset.t, `${p.name} ${p.role} · CTS 교회행전 167회(2018)`));
@@ -243,7 +243,7 @@
   function show(i) { idx = (i + group.length) % group.length; const el = group[idx]; lbImg.src = el.dataset.lb; lbImg.alt = el.querySelector('img')?.alt || ''; lbCap.textContent = el.dataset.cap || ''; }
   document.addEventListener('click', e => {
     const el = e.target.closest('[data-lb]'); if (!el) return;
-    group = $$('[data-lb]', el.closest('.mosaic, .sun-grid') || document); show(group.indexOf(el));
+    group = $$('[data-lb]', el.closest('.mosaic, .sun-grid, .sun6') || document); show(group.indexOf(el));
     lb.showModal(); document.body.style.overflow = 'hidden';
   });
   $('.prev', lb).addEventListener('click', e => { e.stopPropagation(); show(idx - 1); });
