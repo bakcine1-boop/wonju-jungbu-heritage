@@ -108,7 +108,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .stat .n{font-family:var(--serif);font-size:clamp(48px,5.4vw,78px);line-height:1;letter-spacing:-.04em;font-weight:500}
 .stat .n sup{font-size:.34em;letter-spacing:0;margin-left:3px;vertical-align:super;color:var(--rose)}
 .stat b{display:block;margin-top:14px;font-size:15.5px;font-weight:600}
-.stat span{display:block;margin-top:2px;font-size:13.5px;color:var(--muted);line-height:1.55}
+.stat > span{display:block;margin-top:2px;font-size:13.5px;color:var(--muted);line-height:1.55}
 .vision{margin-top:clamp(70px,9vw,120px);display:grid;grid-template-columns:minmax(260px,.8fr) 1.2fr;gap:clamp(36px,6vw,90px);align-items:center}
 .emblem{position:relative;aspect-ratio:1/1;max-width:420px;width:100%;border-radius:50%;background:radial-gradient(circle at 50% 45%,#fff 0,#F7F2EC 55%,var(--paper-2) 100%);display:grid;place-items:center;box-shadow:inset 0 0 0 1px var(--line)}
 .emblem img{width:40%;height:auto}
