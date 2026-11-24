@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="css/style.css?v=5">
+<link rel="stylesheet" href="css/style.css?v=6">
 <link rel="preload" as="image" href="img/hero-poster.webp?v=2">
 </head>
 <body>
@@ -30,9 +30,9 @@
     <nav aria-label="주요 메뉴">
       <ul>
         <li><a href="#story">교회의 이야기</a></li>
+        <li><a href="#sunday">어느 주일</a></li>
         <li><a href="#voices">목소리</a></li>
         <li><a href="#pastor">목자</a></li>
-        <li><a href="#anniv">2026 기념예배</a></li>
         <li><a href="#nextgen">다음 세대</a></li>
         <li><a href="#mission">세상 속으로</a></li>
         <li><a href="#record">기록 사역</a></li>
@@ -43,9 +43,9 @@
 </header>
 <div class="sheet" id="sheet" aria-hidden="true">
   <a href="#story">교회의 이야기 <span>01</span></a>
-  <a href="#voices">목소리 <span>02</span></a>
-  <a href="#pastor">목자 <span>03</span></a>
-  <a href="#anniv">2026 기념예배 <span>04</span></a>
+  <a href="#sunday">어느 주일 <span>02</span></a>
+  <a href="#voices">목소리 <span>03</span></a>
+  <a href="#pastor">목자 <span>04</span></a>
   <a href="#nextgen">다음 세대 <span>05</span></a>
   <a href="#mission">세상 속으로 <span>06</span></a>
   <a href="#record">기록 사역 <span>07</span></a>
@@ -153,7 +153,7 @@
   </article>
 
   <article class="scene" id="s3">
-    <div class="bg" aria-hidden="true" style="background:linear-gradient(120deg,#1b1614,#2b221e)"></div>
+    <div class="bg dim" aria-hidden="true"><video class="lv" muted playsinline loop preload="none" poster="img/loop-preach.webp?v=2" data-src="video/loop-preach.mp4?v=2"></video></div>
     <div class="inner">
       <div class="rv">
         <div class="yr">2003</div>
@@ -162,7 +162,7 @@
         <p>2003년 5월 22일, 김미열 목사가 제5대 담임목사로 부임했습니다. 문막에서 나고 원주에서 고등학교를 다니던 시절 이 교회에 출석했던 그는, 안산반월교회에서 20년을 섬긴 뒤 담임목사가 공석이던 교회의 부탁으로 강단에 섰고 그 인연으로 부임했습니다.</p>
         <blockquote>“고향교회 같은 곳에서 목회하는 것이 맞는지 고민이 컸지만, 지금으로서는 너무 좋은 판단이었다.”<cite>김미열 목사, 2015년 인터뷰</cite></blockquote>
       </div>
-      <figure class="rv d2"><img src="img/pastor-library-600.webp" alt="서재에서 책을 든 김미열 목사" width="600" height="338" loading="lazy"><figcaption>김미열 담임목사</figcaption></figure>
+      
     </div>
   </article>
 
@@ -194,6 +194,33 @@
   </article>
 </section>
 
+<!-- SUNDAY -->
+<section class="sunday" id="sunday">
+  <div class="wrap">
+    <div class="vhead">
+      <div>
+        <p class="eyebrow rv">어느 주일 <b>2026. 11. 8.</b></p>
+        <h2 class="h2 rv d1">세례가 있던 주일,<br>예배의 얼굴들</h2>
+      </div>
+      <p class="lead rv d2">CTS 강원방송이 신앙유산 기록 사역의 첫 촬영으로 담은 주일입니다. 이날 원주중부교회는 세례예식을 드렸습니다. 기도하는 손, 찬양하는 얼굴, 세례를 받는 성도까지 오늘의 원주중부교회입니다.</p>
+    </div>
+    <div class="sun-film rv"><video class="lv" muted playsinline loop preload="none" poster="img/sunday.webp?v=2" data-src="video/sunday.mp4?v=2"></video></div>
+    <div class="sun-grid" id="sungrid">
+      <div class="ph a" data-lb="img/sun/pastor-1600.webp?v=2" data-cap="주일 설교 · 김미열 담임목사"><img src="img/sun/pastor-800.webp?v=2" alt="설교하는 김미열 담임목사" loading="lazy"></div>
+      <div class="ph" data-lb="img/sun/choir-1600.webp?v=2" data-cap="찬양대"><img src="img/sun/choir-800.webp?v=2" alt="찬양대" loading="lazy"></div>
+      <div class="ph" data-lb="img/sun/girl-1600.webp?v=2" data-cap="기도하는 어린이"><img src="img/sun/girl-800.webp?v=2" alt="기도하는 어린이" loading="lazy"></div>
+      <div class="ph" data-lb="img/sun/baptism-1600.webp?v=2" data-cap="세례예식"><img src="img/sun/baptism-800.webp?v=2" alt="세례예식" loading="lazy"></div>
+      <div class="ph" data-lb="img/sun/kids-1600.webp?v=2" data-cap="주일학교"><img src="img/sun/kids-800.webp?v=2" alt="주일학교 어린이들" loading="lazy"></div>
+      <div class="ph b" data-lb="img/sun/wide-1600.webp?v=2" data-cap="본당 예배"><img src="img/sun/wide-800.webp?v=2" alt="본당 예배 전경" loading="lazy"></div>
+      <div class="ph" data-lb="img/sun/mother-1600.webp?v=2" data-cap="영아부 예배"><img src="img/sun/mother-800.webp?v=2" alt="영아부 예배" loading="lazy"></div>
+      <div class="ph" data-lb="img/sun/solo-1600.webp?v=2" data-cap="찬양 인도"><img src="img/sun/solo-800.webp?v=2" alt="찬양 인도" loading="lazy"></div>
+      <div class="ph" data-lb="img/sun/youth-1600.webp?v=2" data-cap="청년 찬양"><img src="img/sun/youth-800.webp?v=2" alt="청년 찬양팀" loading="lazy"></div>
+      <div class="ph" data-lb="img/sun/prayer-1600.webp?v=2" data-cap="기도"><img src="img/sun/prayer-800.webp?v=2" alt="기도하는 성도" loading="lazy"></div>
+    </div>
+    <p class="src">영상·사진 · CTS 강원방송 신앙유산 기록 촬영 (2026. 11. 8.)</p>
+  </div>
+</section>
+
 <!-- VOICES -->
 <section class="voices" id="voices">
   <div class="wrap">
@@ -217,7 +244,7 @@
 <!-- PASTOR -->
 <section class="sec pastor" id="pastor">
   <div class="wrap pastor-grid">
-    <figure class="pastor-ph rv"><img src="img/pastor-church-600.webp" alt="무실동 예배당 앞의 김미열 목사" width="600" height="338" loading="lazy"><figcaption>무실동 예배당 앞에서</figcaption></figure>
+    <figure class="pastor-ph rv"><img src="img/sun/pulpit-1600.webp?v=2" alt="주일 설교하는 김미열 목사" width="1600" height="900" loading="lazy"><figcaption>2026년 11월 8일 주일 · CTS 강원방송 촬영</figcaption></figure>
     <div class="rv d1">
       <p class="eyebrow">목자 <b>Senior Pastor</b></p>
       <h2 class="h2">복음 전도와<br>제자도의 목회</h2>
@@ -276,7 +303,7 @@
 <section class="sec nextgen" id="nextgen">
   <div class="wrap">
     <div class="feat">
-      <div class="fv rv"><video class="lv" muted playsinline loop preload="none" poster="img/loop-kids.webp" data-src="video/loop-kids.mp4"></video></div>
+      <div class="fv rv"><video class="lv" muted playsinline loop preload="none" poster="img/loop-ng.webp?v=2" data-src="video/loop-ng.mp4?v=2"></video></div>
       <div class="ft rv d1">
         <p class="eyebrow">다음 세대 <b>Next Generation</b></p>
         <h2 class="h2">아기부터 청년까지,<br>예수님의 성품으로</h2>
@@ -288,7 +315,7 @@
           <li><b>중부가족행복축제</b><span>아이부터 원로까지 온 교회가 함께하는 축제, 2026년 열여섯 번째</span></li>
         </ul>
         <button class="txtlink" type="button" data-play="3JCRpZqDU80" data-cap="CTS뉴스 · 2026 어린이 꽃잔치">▶ CTS뉴스로 보는 2026 어린이 꽃잔치</button>
-        <p class="src">출처 · 기독신문(2025), CTS 교회행전(2018), CTS뉴스(2026), 교회 유튜브</p>
+        <p class="src">출처 · 기독신문(2025), CTS 교회행전(2018), CTS뉴스(2026), 교회 유튜브 · 영상 CTS 강원방송(2026. 11. 8.)</p>
       </div>
     </div>
   </div>
@@ -365,14 +392,14 @@
     <ol class="steps rv">
       <li class="done"><span class="when">2026. 6.</span><b>기록 사역 제안</b><span>교회 소개영상·인터뷰·기록관</span></li>
       <li class="done"><span class="when">2026. 8.</span><b>기록 사역 안내</b><span>일정과 인터뷰 대상 추천 요청</span></li>
-      <li class="now"><span class="when">2026. 11.</span><b>교회 촬영 시작</b><span>주일예배, 예배당과 항공 촬영</span><i class="tag">진행 중</i></li>
+      <li class="done"><span class="when">2026. 11. 8.</span><b>첫 교회 촬영</b><span>주일예배·세례예식, 항공 촬영</span></li>
       <li class="now"><span class="when">2026. 12.</span><b>기록관 1차 공개</b><span>교회의 이야기와 목소리, 이 페이지</span><i class="tag">지금</i></li>
       <li><span class="when">2027</span><b>인터뷰 영상</b><span>한 분마다 영상 한 편과 기사 한 편</span></li>
       <li><span class="when">2027</span><b>교회 소개영상</b><span>5분 내외, 교회의 공식 영상</span></li>
       <li><span class="when">2030</span><b>설립 70주년</b><span>기념사업의 1차 사료로</span></li>
     </ol>
     <div class="film rv">
-      <img src="img/drone-cross-1600.webp" alt="" loading="lazy">
+      <img src="img/sun/wide-1600.webp?v=2" alt="" loading="lazy">
       <div class="cap">
         <small>교회 소개영상 · 제작 중</small>
         <b>원주중부교회의 얼굴</b>
@@ -491,6 +518,6 @@
 </dialog>
 
 <script src="js/data.js?v=3"></script>
-<script src="js/main.js?v=3"></script>
+<script src="js/main.js?v=4"></script>
 </body>
 </html>
