@@ -41,7 +41,20 @@
       n.focus(); n.click();
     });
   });
-  showGroup('w');
+  showGroup('s');
+
+  /* ---------- voices strip ---------- */
+  const vstrip = $('#vstrip');
+  if (vstrip && window.VOICES) {
+    vstrip.innerHTML = VOICES.map((v, i) => `<button class="vc2" data-t="${v.t}" data-cap="${esc(v.who + ' · ' + v.role)}" aria-label="${esc(v.who)} ${esc(v.role)}의 대답 듣기">
+      <span class="ph"><img src="img/voices/${v.img}.webp?v=1" alt="" loading="lazy" width="800" height="494"><span class="gen">${esc(v.role)}</span><span class="pl" aria-hidden="true"></span></span>
+      <q>“${esc(v.q).replace(/^“|”$/g, '')}”</q><span class="by"><b>${esc(v.who)}</b>${esc(v.role)}</span></button>`).join('');
+    vstrip.addEventListener('click', e => { const c = e.target.closest('.vc2'); if (c) openVideo(window.VOICE_YT, +c.dataset.t, c.dataset.cap + ' · 중부가족행복축제 홍보영상(2026)'); });
+  }
+  $$('.strip-ctl button[data-for]').forEach(b => b.addEventListener('click', () => {
+    const el = $('#' + b.dataset.for); const w = el.firstElementChild?.getBoundingClientRect().width || 300;
+    el.scrollBy({ left: (+b.dataset.dir) * (w + 18) * 2, behavior: reduce ? 'auto' : 'smooth' });
+  }));
 
   /* ---------- CTS strip ---------- */
   const strip = $('#strip');
@@ -49,7 +62,7 @@
     strip.innerHTML = CTS.map(c => `<button class="clip" data-yt="${c.yt}" data-cap="${esc(c.d + ' · ' + c.t)}" aria-label="${esc(c.t)} 영상 보기">
       <span class="th"><img src="img/cts/${c.yt}.webp?v=1" alt="" loading="lazy" width="640" height="360"></span>
       <span class="d">${esc(c.d)}</span><span class="t">${esc(c.t)}${c.long ? '<span class="len">긴 영상</span>' : ''}</span></button>`).join('');
-    $$('.strip-ctl button').forEach(b => b.addEventListener('click', () => {
+    $$('.strip-ctl button:not([data-for])').forEach(b => b.addEventListener('click', () => {
       const w = strip.querySelector('.clip')?.getBoundingClientRect().width || 300;
       strip.scrollBy({ left: (+b.dataset.dir) * (w + 22) * 2, behavior: reduce ? 'auto' : 'smooth' });
     }));
@@ -57,7 +70,7 @@
 
   /* ---------- nav / progress / active ---------- */
   const nav = $('#nav'), bar = $('.progress');
-  const darkSecs = $$('.hero, .dark, .story, .epi, .foot');
+  const darkSecs = $$('.hero, .dark, .story, .voices, .epi, .foot');
   const links = $$('.nav ul a');
   const secs = links.map(a => $(a.getAttribute('href'))).filter(Boolean);
   const scenes = $$('.scene'), rail = $('.rail'), railLinks = rail ? $$('a', rail) : [];
@@ -117,6 +130,17 @@
       const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? hv.play().catch(() => {}) : hv.pause()), { threshold: .05 });
       io.observe(hv);
     }
+  }
+
+  /* ---------- 장면 배경 반복 영상: 보일 때만 불러오고 재생 ---------- */
+  const lvs = $$('video.lv');
+  if (lvs.length && 'IntersectionObserver' in window && !reduce && !saveData) {
+    const lio = new IntersectionObserver(es => es.forEach(e => {
+      const v = e.target;
+      if (e.isIntersecting) { if (!v.src) { v.src = v.dataset.src; v.load(); } v.play().catch(() => {}); }
+      else if (v.src) v.pause();
+    }), { rootMargin: '200px 0px', threshold: 0.01 });
+    lvs.forEach(v => lio.observe(v));
   }
 
   /* ---------- youtube (자막 끄기, 한 번에 하나만 재생) ---------- */
@@ -187,6 +211,7 @@
     if (vbox._player) { try { vbox._player.destroy(); } catch (_) {} const k = players.indexOf(vbox._player); if (k >= 0) players.splice(k, 1); delete vbox._player; }
     vbox.innerHTML = '';
   });
+  document.addEventListener('click', e => { const b = e.target.closest('[data-play]'); if (b) openVideo(b.dataset.play, 0, b.dataset.cap); });
   strip && strip.addEventListener('click', e => { const c = e.target.closest('.clip'); if (c) openVideo(c.dataset.yt, 0, c.dataset.cap); });
 
   /* ---------- person dialog ---------- */
